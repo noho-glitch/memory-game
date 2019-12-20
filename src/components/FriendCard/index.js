@@ -3,15 +3,10 @@ import "./style.css";
 
 function FriendCard(props) {
   return (
-    <div className="card">
+    <div className="card" onClick={props.handleClick}>
       <div className="img-container">
-        <img alt={props.name} src={props.image} />
-        
-        
-            {/* <strong>{props.name}</strong>  */}
-         
+        <img alt={props.name} src={props.image} />         
       </div>
-      
     </div>
   );
 }

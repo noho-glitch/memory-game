@@ -5,25 +5,38 @@ import Title from "./components/Title";
 import friends from "./friends.json";
 
 class App extends Component {
-  // Setting this.state.friends to the friends json array
   state = {
     friends,
     score: 0,
     highScore: 0
+
   };
 
-  // Map over this.state.friends and render a FriendCard component for each friend object
+  shuffle = () => {
+    this.setState ({
+      friends: this.state.friends.sort(()=> Math.random() - 0.5)
+    })
+  }
+ 
+  handleClick = function(id)  {
+    this.shuffle();
+    this.setState ({
+      score: this.state.score + 1
+    })
+console.log(this.state.score)
+console.log(typeof(this.state.score))
+  }
+
   render() {
     return (
       <Wrapper>
         <Title>Friends List</Title>
         {this.state.friends.map(friend => (
           <FriendCard
-            removeFriend={this.removeFriend}
+            image={friend.image}
             id={friend.id}
             key={friend.id}
-            name={friend.name}
-            image={friend.image}
+            handleClick={() => this.handleClick(friend.id)}
           />
         ))}
       </Wrapper>
