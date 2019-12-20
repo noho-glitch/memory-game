@@ -52,7 +52,7 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Title score={this.state.score} highScore={this.state.highScore}>Friends List</Title>
+        <Title score={this.state.score} highScore={this.state.highScore}></Title>
         {this.state.friends.map(friend => (
           <FriendCard
             image={friend.image}
