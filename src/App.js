@@ -3,13 +3,15 @@ import FriendCard from "./components/FriendCard";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import friends from "./friends.json";
+const idArray = []
+
 
 class App extends Component {
   state = {
     friends,
     score: 0,
-    highScore: 0
-
+    highScore: 0,
+   
   };
 
   shuffle = () => {
@@ -23,8 +25,17 @@ class App extends Component {
     this.setState ({
       score: this.state.score + 1
     })
-console.log(this.state.score)
-console.log(typeof(this.state.score))
+    idArray.push(id);
+    if (idArray.includes(id)) {
+      this.setState ({
+        highScore: this.state.score,
+        // score: this.state.score = 0,
+      })
+    };
+console.log("idArray:" + idArray)
+console.log("score: " + this.state.score)
+console.log("score typeof(" + typeof(this.state.score) + ")")
+console.log("High Score: " + this.state.score)
   }
 
   render() {
