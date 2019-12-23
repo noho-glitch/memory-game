@@ -38,15 +38,16 @@ class App extends Component {
             highScore: this.state.score
           });
         };
+        if (this.state.score === 12) {
+          alert("You win!")
+          this.setState ({
+            score: 0,
+            idArray: []
+          });
+        };
       });
     };
-    if (this.state.score === 12) {
-      alert("You win!")
-      this.setState ({
-        score: 0,
-        idArray: []
-      });
-    };
+  
   };
 
   render() {
